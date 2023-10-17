@@ -60,7 +60,7 @@ Sol. $X \colon 1 \mapsto 1/20 , 2 \mapsto 1/10, 3 \mapsto 1/4$, and thus, assumi
 lose $30,000, a 40% chance that you will break even, and a 25% chance that you will make
 $55,000. Based solely on this information, what should you do?
 
-Sol. $\mathbf E [X] = -30000\frac{35}{100} + 55000\frac{25}{100} > 0$ so you invest
+Sol. $\mathbf  E [X] = -30000\frac{35}{100} + 55000\frac{25}{100} > 0$ so you invest. 
 ## CDF
 Recall that if we're given some random variable $X \colon \Omega \to \mathbb R$ on a probability space $(\Omega, \mathcal F , \mathbf P)$ we have an associated function, called the *cumulative distribution function* (CDF), $F_X \colon \mathbb R \to [0,1]$ given by $F_X(y) = \mathbf P(X \leq y)$. 
 We also denote the *distribution of $X$* as $\rho_X( (a,b]) = \mathbf P (\{\omega \in \Omega \colon X(\omega)  \in (a,b]\}) $.
