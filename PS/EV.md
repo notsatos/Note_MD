@@ -48,10 +48,23 @@ An observation I made earlier, which is obvious, is that the set of random varia
 However, to think about it a little right now, $\mathfrak v(\Omega)$ is finite-dimensional if and only if $\Omega$ is finite (this is part of a more general fact about function spaces of $k = \mathbb R$). Now, by Rank-Nullity, $\dim (\ker (\mathbf E))+\dim (\text{im}(\mathbf E)) = 1$, but as $\text{im} (\mathbf E)$ is a subspace of $\mathbb R$, which is of dimension one, and of course has non-trivial image, we have $\text{im} (\mathbf E) = \mathbb R$, so $\dim (\ker (\mathbf E)) = 0$. Hence we can conclude that if $\mathbf E[X] = \mathbf E[Y]$ for any random variables $X,Y$, we must have that $X=Y$, by using that the kernel must be trivial.
 
 
-*Example.* Suppose we flip a coin 10 times. What is the expected number of heads we get?
+*Exercise.* Suppose we flip a coin 10 times. What is the expected number of heads we get?
 
+*Sol.* Define random variables $Y_i = 0 $ if the $i$-th flip is tails, $1$ if the $i$-th flips is heads. Then $Y = Y_1 + Y_2 + \cdots + Y_{10}$. Then, by linearity, $\mathbf E[Y] = \sum_{i = 1}^{10} \mathbf E[Y_i]$. The great utility of choosing this linearity is that in evaluating $\mathbf E[Y_i]$ we're able to think about the possibilities as binaries. That is, the expected value of $\mathbf E[Y_i] = 1/2 \cdot 1 + 0 \cdot 1/2 = 1/2$. Thus $\mathbf E[Y] = 1/2 \cdot 10 = 5$.
 
+*Exercise.* There is a dinner party where n men check their hats. The hats are mixed up during
+dinner, so that afterward each man receives a random hat. In particular, each man gets
+his own hat with probability 1/n. What is the expected number of men who get their own
+hat?
 
+*Sol.* Define the random variables as $Y_i = 0 $ if the $i$-th person doesn't get their hat back, $1$ if the $i$-th person get their hat back. Then $Y = Y_1 + \cdots + Y_n$ counts the amount of people getting their hat back. We have $\mathbf E[Y_i] = 1/n \cdot 1 + 1/n \cdot 0$. By linearity, we have $\mathbf E[Y]  = \sum_{i = 1}^n \mathbf E[Y_i] = \sum_{i=1}^n (1/n) = n \cdot 1/n = 1$.
+
+*Exercise.* Suppose you have 10 pairs of socks, with each pair being a different color. (So,
+maybe you have a red pair, and a yellow pair, and so forth.) You put them all in the washing
+machine. The washing machine eats four socks at random. What is the expected value for
+the number of complete pairs that make it out alive?
+
+*Sol.* 
 
 ## Problems and Solutions
 
