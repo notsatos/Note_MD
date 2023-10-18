@@ -31,6 +31,28 @@ According to a slightly different language, if $\Omega$ is of size, say, $n$, we
 $$\mathbf E[X] = \sum_{i=1}^n a_i \mathbf P(X=a_i).$$ 
 Recall that $\mathbf P(X=a_i) := \mathbf P ( \{ \omega \in \Omega \colon X(\omega) = a_i \})$
 
+
+*Definition.* The *variance* of a random variable $X$ on $(\Omega, \mathcal F, \mathbf P)$ is given by Var($X$) = $\mathbf E[X^2] - (\mathbf E[X])^2$. The *standard deviation* of $X$ is given by $\sqrt{\text{Var} (X) }$.
+
+## Utilizing Linearity of Expectations 
+This a short tidbit on a technique I've seen appear often. The general gist is that if you're trying to find out the expectation of a random variable $Y$, then sometimes it's best to do this by breaking up the random variable $Y$ into indicators (i.e. some sort of random variable that gives binary output). This process is best explained through some examples.
+
+
+There's even this funny quote, "When I taught a probability class at Dartmouth College in 2013, I tried to convince my
+students that linearity of expectation is how you solve all problems in probability."[1]
+This is of course in reference to the fact that if $X,Y$ are random variables, then for any $c \in \mathbb R$, $\mathbf E(cX) = c \mathbf E(X)$ and $\mathbf E(X+Y) = \mathbf E(X) + \mathbf E (Y)$.
+
+An observation I made earlier, which is obvious, is that the set of random variables, say, on $\Omega$ forms a $k$-vector space. I believe this should work with all fields $k$, but for simplicity, $k = \mathbb R$. (I also think there should be some restriction on $\Omega$, i.e. it's countable or finite, but I do not want to think about it right now.) This $k$-vector space is just the function space $\mathfrak v (\Omega ) = \mathbb R^{\Omega}$. This observation lets you describe the expectation $\mathbf E $ as a $k$-linear function, $\mathbf E \colon \mathfrak v (\Omega) \to \mathbb R$, $Y \mapsto \mathbf E[Y]$. In fact, a linear functional, i.e. an element in the dual space $\mathfrak v(\Omega)^\ast$. There's a lot to actually be said about $\mathfrak v(\Omega)$, which I will think about later on [2]. 
+
+
+However, to think about it a little right now, $\mathfrak v(\Omega)$ is finite-dimensional if and only if $\Omega$ is finite (this is part of a more general fact about function spaces of $k = \mathbb R$). Now, by Rank-Nullity, $\dim (\ker (\mathbf E))+\dim (\text{im}(\mathbf E)) = 1$, but as $\text{im} (\mathbf E)$ is a subspace of $\mathbb R$, which is of dimension one, and of course has non-trivial image, we have $\text{im} (\mathbf E) = \mathbb R$, so $\dim (\ker (\mathbf E)) = 0$. Hence we can conclude that if $\mathbf E[X] = \mathbf E[Y]$ for any random variables $X,Y$, we must have that $X=Y$, by using that the kernel must be trivial.
+
+
+*Example.* Suppose we flip a coin 10 times. What is the expected number of heads we get?
+
+
+
+
 ## Problems and Solutions
 
 (1) You draw one card from a standard deck of playing cards. If you pick a heart, you will win $10. If you pick a face card, which is not a heart, you win $8. If you pick any other card, you lose $6. Do you want to play? Explain.
@@ -61,6 +83,24 @@ lose $30,000, a 40% chance that you will break even, and a 25% chance that you w
 $55,000. Based solely on this information, what should you do?
 
 Sol. $\mathbf  E [X] = -30000\frac{35}{100} + 55000\frac{25}{100} > 0$ so you invest. 
+
+(6) Throw a die. If you win $2 when the number is even and lose $1 when the number is odd, what is the
+expected value? If you pay $1 to play the game, will you win in the long run?
+
+Sol. $X  \colon e \mapsto 2, o \mapsto -1$, so $\mathbf E[X] = 3 \cdot 2 \frac{1}{6}  - 3 \cdot \frac{1}{6} = 3/6 = 1/2$.
+
+(7) Someone is using a loaded die. The probability of rolling a “1” is ½ and the rest of the values have equal probabilities. Find the expected
+value for rolling this die.
+
+Sol. $\mathbf E[X] = 1 (1/2) + 2(1/6) + 3(1/6) + 4(1/6) = 1/2 + 1/3 + 1/2 + 2/3 = 1 + 1 = 2$.
+
+
+
+
+## References
+1. *Linearity of Expectation*, Simon Rubinstein-Salzedo,  https://sanjosemathcircle.org/handouts/2018-2019/20190405_handout.pdf
+
+2. *Vector space of Random Variables*, https://www.randomservices.org/random/expect/Spaces.html
 ## CDF
 Recall that if we're given some random variable $X \colon \Omega \to \mathbb R$ on a probability space $(\Omega, \mathcal F , \mathbf P)$ we have an associated function, called the *cumulative distribution function* (CDF), $F_X \colon \mathbb R \to [0,1]$ given by $F_X(y) = \mathbf P(X \leq y)$. 
 We also denote the *distribution of $X$* as $\rho_X( (a,b]) = \mathbf P (\{\omega \in \Omega \colon X(\omega)  \in (a,b]\}) $.
